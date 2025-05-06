@@ -3,7 +3,6 @@
 #include <QDebug>
 #include <QList>
 
-
 // Constructor - Initializes the database pointer
 Stock::Stock(DatabaseManager* dbManager) : db(dbManager) {}
 
@@ -24,7 +23,7 @@ bool Stock::checkStock(int medID) {
 
 // Calls the function to check stock by medicine ID
 int Stock::checkStockByMedicineID(int medID) {
-    return db->checkStockByMedicineID(medID);
+    return db->getAvailableStock(medID);
 }
 
 // Calls the function to check stock by stock ID

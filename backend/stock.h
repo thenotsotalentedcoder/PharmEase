@@ -14,7 +14,6 @@ public:
 
     // Stock Management
     bool addStock(int medID, int quantity);
-    bool removeOrderedMeds(int medID, int quantity);
     bool removeExpiredMeds();
 
     // Stock Queries

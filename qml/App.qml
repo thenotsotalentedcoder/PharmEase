@@ -27,7 +27,7 @@ ApplicationWindow {
         anchors.fill: parent
         initialItem: databaseConnected ? 
             Qt.createComponent("qrc:/qml/Screen01.qml").createObject(stackView, {"stackView": stackView}) :
-            Qt.createComponent("qrc:/qml/DatabaseError.qml").createObject(stackView, {"errorMessage": "Database connection failed"})
+            Qt.createComponent("qrc:/qml/DataBaseError.qml").createObject(stackView, {"errorMessage": "Database connection failed"})
     }
     
     // Error dialog for database issues

@@ -265,8 +265,9 @@ Item {
                                     color: "transparent"
                                     border.color: "#e0e0e0"
                                     
-                                    Text
-                                    text: model.medicineID
+                                    Text {
+                                        anchors.centerIn: parent
+                                        text: model.medicineID
                                         horizontalAlignment: Text.AlignHCenter
                                     }
                                 }
@@ -418,7 +419,7 @@ Item {
             let medNameMatch = item.medicineName.toLowerCase().includes(searchField.text.toLowerCase());
             let customerMatch = item.customerName.toLowerCase().includes(searchField1.text.toLowerCase());
             let paymentMatch = paymentFilter.currentText === "All" || 
-                              (paymentFilter.currentText === item.paymentMethod);
+                              (item.paymentMethod && paymentFilter.currentText === item.paymentMethod);
             
             if ((searchField.text === "" || medNameMatch) && 
                 (searchField1.text === "" || customerMatch) &&

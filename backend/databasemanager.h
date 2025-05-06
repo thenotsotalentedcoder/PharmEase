@@ -50,6 +50,7 @@ public:
     Q_INVOKABLE bool addStock(int medicine_id, int quantity);
     Q_INVOKABLE bool checkStock(int medicine_id);
     Q_INVOKABLE QList<int> getLowStockMedicines(int threshold);
+    Q_INVOKABLE bool removeOrderedMeds(int medID, int quantity);
 
     // Order & Order_Details Operations
     Q_INVOKABLE int createOrder(QString customer_name);
@@ -86,11 +87,9 @@ public:
     Q_INVOKABLE bool removeMeds(int medicineID);
     Q_INVOKABLE bool checkStockByMedicineID(int medicineID);
     Q_INVOKABLE bool checkStockByStockID(int stockID);
-    Q_INVOKABLE bool removeStock(int medID, int quantity);
     Q_INVOKABLE bool isStockAvailable(int medicineID, int requiredQty);
     Q_INVOKABLE bool checkMedicineByStockID(int stockID);
     Q_INVOKABLE bool checkMedicineByMedicineID(int medicineID);
-    Q_INVOKABLE bool removeOrderedMeds(int medID, int quantity);
     Q_INVOKABLE void displayMedicineInfo();
     Q_INVOKABLE int getMedicineIDByName(QString medName);
 
@@ -113,6 +112,7 @@ public:
     Q_INVOKABLE double getHighestSale();
     Q_INVOKABLE int getTotalTransactions();
     Q_INVOKABLE double getAverageSale();
+    Q_INVOKABLE QVector<QPair<QString,double>> getDailySales();
     Q_INVOKABLE QVariantList getDailySalesData();
 
     // Authentication
