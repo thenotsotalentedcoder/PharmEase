@@ -32,12 +32,13 @@ target_link_libraries(appPharmease_app
     Qt6::Widgets
 )
 
-
+# Make sure all QML files and resources are included
 qt_add_resources(appPharmease_app "qml_resources"
     PREFIX "/"
     FILES
         qml/App.qml
         qml/Screen01.qml
+        qml/DataBaseError.qml
         qml/Employee_details.qml
         qml/Login_administrator.qml
         qml/Login_employee.qml
@@ -48,6 +49,13 @@ qt_add_resources(appPharmease_app "qml_resources"
         qml/Sales_report.qml
         qml/Track_inventory.qml
         qml/View_orders.qml
+        qml/images/images.txt
+        qml/fonts/fonts.txt
+)
+
+# Create a directory for the database in the build directory
+add_custom_command(TARGET appPharmease_app POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/data"
 )
 
 install(TARGETS appPharmease_app

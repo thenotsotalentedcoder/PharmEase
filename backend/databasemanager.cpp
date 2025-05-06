@@ -1,3 +1,4 @@
+#include <stdexcept> 
 #include "DatabaseManager.h"
 #include "qdebug.h"
 #include "qlogging.h"
@@ -61,8 +62,16 @@ QString DatabaseManager::getDatabasePath() {
     }
     
     // If not found, use a default location
-    QString defaultPath = appDir + "/PHARMACY.db";
+    QString defaultPath = appDir + "/data/PHARMACY.db";
     qDebug() << "Database not found in common locations, using default path:" << defaultPath;
+    
+    // Create directory for database if needed
+    QDir dir = QFileInfo(defaultPath).dir();
+    if (!dir.exists()) {
+        dir.mkpath(".");
+        qDebug() << "Created directory for database at:" << dir.absolutePath();
+    }
+    
     return defaultPath;
 }
 
@@ -1916,54 +1925,58 @@ bool DatabaseManager::addStockInfo(int medicineId, const QString &name, const QS
     }
 
     // Begin transaction
-    db.transaction();
+    if (!db.transaction()) {
+        qDebug() << "Failed to start transaction:" << db.lastError().text();
+        emit stockAdded(false);
+        return false;
+    }
     
     bool success = true;
     
-    // Check if medicine exists
-    QSqlQuery checkQuery(db);
-    checkQuery.prepare("SELECT COUNT(*) FROM Medicine WHERE medicine_id = ?");
-    checkQuery.addBindValue(medicineId);
-    
-    if (checkQuery.exec() && checkQuery.next()) {
-        if (checkQuery.value(0).toInt() > 0) {
-            // Medicine exists, update it
-            QSqlQuery medicineQuery(db);
-            medicineQuery.prepare("UPDATE Medicine SET name = ?, supplier = ?, price = ?, expiry_date = ? "
-                            "WHERE medicine_id = ?");
-            medicineQuery.addBindValue(name);
-            medicineQuery.addBindValue(supplier);
-            medicineQuery.addBindValue(price);
-            medicineQuery.addBindValue(expiryDate);
-            medicineQuery.addBindValue(medicineId);
-            
-            if (!medicineQuery.exec()) {
-                qDebug() << "Error updating medicine:" << medicineQuery.lastError().text();
-                success = false;
+    try {
+        // Check if medicine exists
+        QSqlQuery checkQuery(db);
+        checkQuery.prepare("SELECT COUNT(*) FROM Medicine WHERE medicine_id = ?");
+        checkQuery.addBindValue(medicineId);
+        
+        if (checkQuery.exec() && checkQuery.next()) {
+            if (checkQuery.value(0).toInt() > 0) {
+                // Medicine exists, update it
+                QSqlQuery medicineQuery(db);
+                medicineQuery.prepare("UPDATE Medicine SET name = ?, supplier = ?, price = ?, expiry_date = ? "
+                                "WHERE medicine_id = ?");
+                medicineQuery.addBindValue(name);
+                medicineQuery.addBindValue(supplier);
+                medicineQuery.addBindValue(price);
+                medicineQuery.addBindValue(expiryDate);
+                medicineQuery.addBindValue(medicineId);
+                
+                if (!medicineQuery.exec()) {
+                    qDebug() << "Error updating medicine:" << medicineQuery.lastError().text();
+                    throw std::runtime_error("Update medicine failed");
+                }
+            } else {
+                // Medicine doesn't exist, insert it
+                QSqlQuery medicineQuery(db);
+                medicineQuery.prepare("INSERT INTO Medicine (medicine_id, name, supplier, price, expiry_date) "
+                                "VALUES (?, ?, ?, ?, ?)");
+                medicineQuery.addBindValue(medicineId);
+                medicineQuery.addBindValue(name);
+                medicineQuery.addBindValue(supplier);
+                medicineQuery.addBindValue(price);
+                medicineQuery.addBindValue(expiryDate);
+                
+                if (!medicineQuery.exec()) {
+                    qDebug() << "Error inserting medicine:" << medicineQuery.lastError().text();
+                    throw std::runtime_error("Insert medicine failed");
+                }
             }
         } else {
-            // Medicine doesn't exist, insert it
-            QSqlQuery medicineQuery(db);
-            medicineQuery.prepare("INSERT INTO Medicine (medicine_id, name, supplier, price, expiry_date) "
-                            "VALUES (?, ?, ?, ?, ?)");
-            medicineQuery.addBindValue(medicineId);
-            medicineQuery.addBindValue(name);
-            medicineQuery.addBindValue(supplier);
-            medicineQuery.addBindValue(price);
-            medicineQuery.addBindValue(expiryDate);
-            
-            if (!medicineQuery.exec()) {
-                qDebug() << "Error inserting medicine:" << medicineQuery.lastError().text();
-                success = false;
-            }
+            qDebug() << "Error checking medicine existence:" << checkQuery.lastError().text();
+            throw std::runtime_error("Check medicine failed");
         }
-    } else {
-        qDebug() << "Error checking medicine existence:" << checkQuery.lastError().text();
-        success = false;
-    }
 
-    // If medicine was handled successfully, update or insert stock
-    if (success) {
+        // Handle stock update/insert
         QSqlQuery checkStockQuery(db);
         checkStockQuery.prepare("SELECT COUNT(*) FROM Stock WHERE medicine_id = ?");
         checkStockQuery.addBindValue(medicineId);
@@ -1980,7 +1993,7 @@ bool DatabaseManager::addStockInfo(int medicineId, const QString &name, const QS
                 
                 if (!stockQuery.exec()) {
                     qDebug() << "Error updating stock:" << stockQuery.lastError().text();
-                    success = false;
+                    throw std::runtime_error("Update stock failed");
                 }
             } else {
                 // Stock doesn't exist, insert it
@@ -1993,25 +2006,35 @@ bool DatabaseManager::addStockInfo(int medicineId, const QString &name, const QS
                 
                 if (!stockQuery.exec()) {
                     qDebug() << "Error inserting stock:" << stockQuery.lastError().text();
-                    success = false;
+                    throw std::runtime_error("Insert stock failed");
                 }
             }
         } else {
             qDebug() << "Error checking stock existence:" << checkStockQuery.lastError().text();
-            success = false;
+            throw std::runtime_error("Check stock failed");
         }
+    }
+    catch (const std::exception& e) {
+        qDebug() << "Transaction failed: " << e.what();
+        success = false;
     }
 
     // Commit or rollback transaction based on success
     if (success) {
-        db.commit();
+        if (!db.commit()) {
+            qDebug() << "Failed to commit transaction:" << db.lastError().text();
+            db.rollback();
+            success = false;
+        }
     } else {
-        db.rollback();
+        if (!db.rollback()) {
+            qDebug() << "Failed to rollback transaction:" << db.lastError().text();
+        }
     }
 
     emit stockAdded(success);
     return success;
-}
+} 
 
 bool DatabaseManager::updateStock(int medicineId, const QString &name, const QString &supplier,
                                  double price, const QString &expiryDate, int quantity) {

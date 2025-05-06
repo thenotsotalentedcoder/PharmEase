@@ -4,16 +4,31 @@
 #include <QtQml>
 #include "backend/databasemanager.h"
 #include <QDir>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 
+    // Create data directory if it doesn't exist
+    QDir dataDir(QCoreApplication::applicationDirPath() + "/data");
+    if (!dataDir.exists()) {
+        dataDir.mkpath(".");
+        qDebug() << "Created data directory at:" << dataDir.absolutePath();
+    }
+
+    // Set up database connection before anything else
+    DatabaseManager dbManager;
+    
+    // Handle database connection failure
+    if (!dbManager.isDatabaseConnected()) {
+        qDebug() << "Warning: Database not connected initially. Will attempt reconnection.";
+    }
+
     QQmlApplicationEngine engine;
 
-    // Create DatabaseManager instance and expose to QML
-    DatabaseManager dbManager;
+    // Expose DatabaseManager to QML
     engine.rootContext()->setContextProperty("dbManager", &dbManager);
 
     // Connect to signal for error handling

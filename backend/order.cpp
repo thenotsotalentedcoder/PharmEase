@@ -63,42 +63,55 @@ void Order:: displayOrderInfo(int orderID){
 }
 
 
-bool Order:: placeOrder(int orderID){
+bool Order::placeOrder(int orderID) {
+    if (!db) {
+        qDebug() << "Database connection not available!";
+        return false;
+    }
+    
+    if (orderID <= 0) {
+        qDebug() << "Invalid order ID: " << orderID;
+        return false;
+    }
+    
     if (order_details.empty()) {
         qDebug() << "No medicines added to the order!";
         return false;
     }
-    //update the order status marking it as 'Placed')
-    if (db->updateOrderStatus(orderID, "Placed")) {
-        qDebug() << "Order status updated to 'Placed'.";
-    } else {
+    
+    // Update the order status (marking it as 'Placed')
+    if (!db->updateOrderStatus(orderID, "Placed")) {
         qDebug() << "Failed to update order status.";
         return false;
+    } else {
+        qDebug() << "Order status updated to 'Placed'.";
     }
-    // Insert all medicines in the order into the order_details table
+    
+    // Add each medicine to the order and update stock
     for (const auto& orderItem : order_details) {
         int medID = orderItem.first;
         int quantity = orderItem.second.first;
         double price = orderItem.second.second;
-
-        // Insert this order details into the database
+        
+        // Check stock availability
+        if (!db->isStockAvailable(medID, quantity)) {
+            qDebug() << "Not enough stock for medicine ID:" << medID;
+            return false;
+        }
+        
+        // Add to order details table
         if (!db->addMedicineToOrder(orderID, medID, quantity, price)) {
             qDebug() << "Failed to add medicine to order.";
             return false;
         }
-    }
-    //Update the stock quantities after placing the order
-    for (const auto& orderItem : order_details) {
-        int medID = orderItem.first;
-        int quantity = orderItem.second.first;
-
-        // Decrease stock quantity in the database
+        
+        // Update stock quantity
         if (!db->removeOrderedMeds(medID, quantity)) {
             qDebug() << "Failed to update stock for medicine ID" << medID;
             return false;
         }
     }
-
+    
     qDebug() << "Order placed successfully!";
     return true;
 }

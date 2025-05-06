@@ -30,6 +30,7 @@ class DatabaseManager : public QObject {
 private:
     QSqlDatabase db;
     bool initializeDatabase();
+    bool createDefaultDatabase(); // Added for handling missing database
     QString getDatabasePath();
 
 public:

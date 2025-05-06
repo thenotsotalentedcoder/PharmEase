@@ -1,8 +1,16 @@
 #include "medicine.h"
+#include "databasemanager.h"
+#include <QDebug>
 
 // Constructor with Stock initialization
-Medicine::Medicine(DatabaseManager* dbManager, int id, const QString &name, const QString &supplier,double price, const QString &expiryDate)
-    : medicine_id(id), medicine_name(name), price(price), supplier(supplier), expiryDate(expiryDate), stock(dbManager) , db(dbManager){}
+Medicine::Medicine(DatabaseManager* dbManager, int id, const QString &name, const QString &supplier, double price, const QString &expiryDate)
+    : medicine_id(id), medicine_name(name), price(price), supplier(supplier), expiryDate(expiryDate), stock(dbManager), db(dbManager) 
+{
+    // Ensure db is set before stock is used
+    if (!db) {
+        qDebug() << "Warning: DatabaseManager is null in Medicine constructor";
+    }
+}
 
 // Getters
 int Medicine::getId() { return medicine_id; }

@@ -2,7 +2,10 @@
 #define STOCK_H
 
 #include <QString>
-#include "databasemanager.h"
+#include <QList>
+
+// Forward declaration
+class DatabaseManager;
 
 class Stock {
 private:
@@ -17,11 +20,9 @@ public:
     bool removeExpiredMeds();
 
     // Stock Queries
-    bool checkStock();
+    bool checkStock(int medID);
     int checkStockByMedicineID(int medID);
     int checkStockByStockID(int stockID);
-
-    bool checkStock(int medID);
     QList<int> getLowStockMedicines(int threshold);
 };
 
