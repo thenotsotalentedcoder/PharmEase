@@ -1,0 +1,10 @@
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/appPharmease_app.dir
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/appPharmease_app_qmlimportscan.dir
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/appPharmease_app_autogen_timestamp_deps.dir
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/appPharmease_app_autogen.dir

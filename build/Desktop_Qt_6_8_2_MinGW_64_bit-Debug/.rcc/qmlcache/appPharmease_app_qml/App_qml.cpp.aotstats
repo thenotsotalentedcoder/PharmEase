@@ -1,0 +1,28 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 23,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on fill.",
+                        "functionName": "fill",
+                        "line": 11
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 24,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type StackView for binding on stackView.",
+                        "functionName": "stackView",
+                        "line": 13
+                    }
+                ],
+                "filepath": "C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/App.qml"
+            }
+        ],
+        "moduleId": "Pharmease_app(appPharmease_app)"
+    }
+]

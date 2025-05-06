@@ -1,0 +1,186 @@
+[
+    {
+        "classes": [
+            {
+                "className": "DatabaseManager",
+                "lineNumber": 23,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "contact",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "addCustomer",
+                        "returnType": "int"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "customer_id",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "removeCustomer",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "customer_id",
+                                "type": "int"
+                            },
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "contact",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "updateCustomer",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "supplier",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "price",
+                                "type": "double"
+                            },
+                            {
+                                "name": "stock",
+                                "type": "int"
+                            },
+                            {
+                                "name": "expiry_date",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "addMedicine",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "medicine_id",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 4,
+                        "name": "removeMedicine",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "medicine_id",
+                                "type": "int"
+                            },
+                            {
+                                "name": "price",
+                                "type": "double"
+                            },
+                            {
+                                "name": "stock",
+                                "type": "int"
+                            },
+                            {
+                                "name": "expiry_date",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 5,
+                        "name": "updateMedicine",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "order_id",
+                                "type": "int"
+                            },
+                            {
+                                "name": "med_name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "payment_method",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "total_amount",
+                                "type": "double"
+                            },
+                            {
+                                "name": "date",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 6,
+                        "name": "addSale",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "index": 7,
+                        "name": "getTotalSales",
+                        "returnType": "double"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "DatabaseManager",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "databasemanager.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "MainWindow",
+                "lineNumber": 17,
+                "object": true,
+                "qualifiedClassName": "MainWindow",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QMainWindow"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "mainwindow.h",
+        "outputRevision": 68
+    }
+]

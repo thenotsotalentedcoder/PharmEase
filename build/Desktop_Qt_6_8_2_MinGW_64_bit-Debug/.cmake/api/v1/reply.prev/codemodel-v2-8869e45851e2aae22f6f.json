@@ -1,0 +1,196 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-6fb9892883eccad88c54.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Pharmease_app",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "all_aotstats::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_aotstats-Debug-ec35072ffcc49fe8fbcb.json",
+					"name" : "all_aotstats",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint-Debug-f54e24e6ae03bb35b987.json",
+					"name" : "all_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_json-Debug-6a176dd24b195aa477b1.json",
+					"name" : "all_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_module-Debug-30d07c495a472799a0bc.json",
+					"name" : "all_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmltyperegistrations::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmltyperegistrations-Debug-d686763897f900433c60.json",
+					"name" : "all_qmltyperegistrations",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appPharmease_app::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appPharmease_app-Debug-e9b5b7d8574d5382f835.json",
+					"name" : "appPharmease_app",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appPharmease_app_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appPharmease_app_autogen-Debug-dcf8e37aebc11fe91be8.json",
+					"name" : "appPharmease_app_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appPharmease_app_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appPharmease_app_autogen_timestamp_deps-Debug-38c31744ed01cb1e0d01.json",
+					"name" : "appPharmease_app_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appPharmease_app_copy_qml::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appPharmease_app_copy_qml-Debug-9e6285a25cc2021a976d.json",
+					"name" : "appPharmease_app_copy_qml",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appPharmease_app_copy_res::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appPharmease_app_copy_res-Debug-3ab9332b4c36e565a534.json",
+					"name" : "appPharmease_app_copy_res",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appPharmease_app_qmlimportscan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appPharmease_app_qmlimportscan-Debug-c2f7875a831840bb3bb0.json",
+					"name" : "appPharmease_app_qmlimportscan",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appPharmease_app_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appPharmease_app_qmllint-Debug-d28a429cf22b4d9cf407.json",
+					"name" : "appPharmease_app_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appPharmease_app_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appPharmease_app_qmllint_json-Debug-95d16d74e8b92ba7e9a3.json",
+					"name" : "appPharmease_app_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appPharmease_app_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appPharmease_app_qmllint_module-Debug-0d50e7afc5825e06fada.json",
+					"name" : "appPharmease_app_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appPharmease_app_qmltyperegistration::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appPharmease_app_qmltyperegistration-Debug-d633f5c7849488ca5afe.json",
+					"name" : "appPharmease_app_qmltyperegistration",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "module_appPharmease_app_aotstats_target::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-module_appPharmease_app_aotstats_target-Debug-60b488b4add7b06c2092.json",
+					"name" : "module_appPharmease_app_aotstats_target",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug",
+		"source" : "C:/Users/Admin/OneDrive/Documents/Pharmease_app"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

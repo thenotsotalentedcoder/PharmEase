@@ -1,0 +1,332 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 5,
+                        "durationMicroseconds": 480,
+                        "errorMessage": "",
+                        "functionName": "downloadPDFReport",
+                        "line": 302
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 16,
+                        "durationMicroseconds": 263,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 11
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 17,
+                        "durationMicroseconds": 190,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 12
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 39,
+                        "durationMicroseconds": 229,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 23
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 39,
+                        "durationMicroseconds": 213,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 32
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 24,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on model.",
+                        "functionName": "model",
+                        "line": 41
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 24,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on model.",
+                        "functionName": "model",
+                        "line": 45
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 35,
+                        "durationMicroseconds": 116,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 69
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 35,
+                        "durationMicroseconds": 178,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 84
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 35,
+                        "durationMicroseconds": 107,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 99
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 35,
+                        "durationMicroseconds": 108,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 111
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 35,
+                        "durationMicroseconds": 105,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 126
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 35,
+                        "durationMicroseconds": 102,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 141
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 54,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on categories.",
+                        "functionName": "categories",
+                        "line": 167
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 50,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on values.",
+                        "functionName": "values",
+                        "line": 168
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 24,
+                        "durationMicroseconds": 345,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 222
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 28,
+                        "durationMicroseconds": 209,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 231
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 45,
+                        "durationMicroseconds": 570,
+                        "errorMessage": "",
+                        "functionName": "verticalCenter",
+                        "line": 232
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 67,
+                        "durationMicroseconds": 277,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 234
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 72,
+                        "durationMicroseconds": 162,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 235
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 73,
+                        "durationMicroseconds": 145,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 236
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 71,
+                        "durationMicroseconds": 167,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 237
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 63,
+                        "durationMicroseconds": 144,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 238
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 24,
+                        "durationMicroseconds": 177,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 244
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 24,
+                        "durationMicroseconds": 160,
+                        "errorMessage": "",
+                        "functionName": "model",
+                        "line": 247
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 28,
+                        "durationMicroseconds": 63,
+                        "errorMessage": "Cannot access value for name tableView",
+                        "functionName": "width",
+                        "line": 250
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 39,
+                        "durationMicroseconds": 157,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 255
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 99,
+                        "durationMicroseconds": 56,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 257
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 132,
+                        "durationMicroseconds": 108,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 257
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 99,
+                        "durationMicroseconds": 55,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 258
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 137,
+                        "durationMicroseconds": 103,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 258
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 99,
+                        "durationMicroseconds": 52,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 259
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 138,
+                        "durationMicroseconds": 107,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 259
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 99,
+                        "durationMicroseconds": 62,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 260
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 144,
+                        "durationMicroseconds": 109,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 260
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 99,
+                        "durationMicroseconds": 52,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 261
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 129,
+                        "durationMicroseconds": 124,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 261
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 39,
+                        "durationMicroseconds": 219,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 270
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 28,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on onClicked.",
+                        "functionName": "onClicked",
+                        "line": 277
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 24,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on onClicked.",
+                        "functionName": "onClicked",
+                        "line": 294
+                    }
+                ],
+                "filepath": "C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Sales_report.qml"
+            }
+        ],
+        "moduleId": "Pharmease_app(appPharmease_app)"
+    }
+]

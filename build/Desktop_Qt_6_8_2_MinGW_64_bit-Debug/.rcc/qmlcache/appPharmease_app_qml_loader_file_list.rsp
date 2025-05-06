@@ -1,0 +1,16 @@
+--resource
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/.qt/rcc/qmake_Pharmease_app.qrc
+--resource
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/.qt/rcc/appPharmease_app_raw_qml_0.qrc
+/Pharmease_app/qml/App.qml
+/Pharmease_app/qml/Screen01.qml
+/Pharmease_app/qml/Employee_details.qml
+/Pharmease_app/qml/Login_administrator.qml
+/Pharmease_app/qml/Login_employee.qml
+/Pharmease_app/qml/Main_administrator.qml
+/Pharmease_app/qml/Main_employee.qml
+/Pharmease_app/qml/Manage_stock.qml
+/Pharmease_app/qml/Place_order.qml
+/Pharmease_app/qml/Sales_report.qml
+/Pharmease_app/qml/Track_inventory.qml
+/Pharmease_app/qml/View_orders.qml

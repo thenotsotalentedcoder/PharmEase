@@ -1,0 +1,572 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 23,
+                        "durationMicroseconds": 443,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 16
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 27,
+                        "durationMicroseconds": 128,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 23
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 28,
+                        "durationMicroseconds": 936,
+                        "errorMessage": "",
+                        "functionName": "onClicked",
+                        "line": 65
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 30,
+                        "durationMicroseconds": 136,
+                        "errorMessage": "Cannot load property text from (component in C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Employee_details.qml)::parent with type QQuickItem.",
+                        "functionName": "text",
+                        "line": 59
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 45,
+                        "durationMicroseconds": 186,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 61
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 43,
+                        "durationMicroseconds": 145,
+                        "errorMessage": "",
+                        "functionName": "verticalAlignment",
+                        "line": 62
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 28,
+                        "durationMicroseconds": 539,
+                        "errorMessage": "",
+                        "functionName": "onClicked",
+                        "line": 96
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 27,
+                        "durationMicroseconds": 265,
+                        "errorMessage": "Cannot load property text from (component in C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Employee_details.qml)::parent with type QQuickItem.",
+                        "functionName": "text",
+                        "line": 90
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 42,
+                        "durationMicroseconds": 183,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 92
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 40,
+                        "durationMicroseconds": 155,
+                        "errorMessage": "",
+                        "functionName": "verticalAlignment",
+                        "line": 93
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 20,
+                        "durationMicroseconds": 304,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 104
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 24,
+                        "durationMicroseconds": 184,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 108
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 28,
+                        "durationMicroseconds": 170,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 118
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 45,
+                        "durationMicroseconds": 289,
+                        "errorMessage": "",
+                        "functionName": "verticalCenter",
+                        "line": 119
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 70,
+                        "durationMicroseconds": 168,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 121
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 72,
+                        "durationMicroseconds": 151,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 122
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 67,
+                        "durationMicroseconds": 163,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 123
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 65,
+                        "durationMicroseconds": 152,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 124
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 66,
+                        "durationMicroseconds": 144,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 125
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 24,
+                        "durationMicroseconds": 190,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 156
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 25,
+                        "durationMicroseconds": 279,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 157
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 24,
+                        "durationMicroseconds": 152,
+                        "errorMessage": "",
+                        "functionName": "model",
+                        "line": 159
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 28,
+                        "durationMicroseconds": 69,
+                        "errorMessage": "Cannot access value for name tableView",
+                        "functionName": "width",
+                        "line": 162
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 49,
+                        "durationMicroseconds": 93,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "editable",
+                        "line": 171
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 25,
+                        "durationMicroseconds": 93,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "toggleEdit",
+                        "line": 173
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 39,
+                        "durationMicroseconds": 149,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 168
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 37,
+                        "durationMicroseconds": 176,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 197
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 39,
+                        "durationMicroseconds": 66,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 202
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 54,
+                        "durationMicroseconds": 163,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 203
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 43,
+                        "durationMicroseconds": 55,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "readOnly",
+                        "line": 204
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 51,
+                        "durationMicroseconds": 105,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 201
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 37,
+                        "durationMicroseconds": 149,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 210
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 39,
+                        "durationMicroseconds": 57,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 215
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 54,
+                        "durationMicroseconds": 148,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 216
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 43,
+                        "durationMicroseconds": 56,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "readOnly",
+                        "line": 217
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 51,
+                        "durationMicroseconds": 105,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 214
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 37,
+                        "durationMicroseconds": 162,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 223
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 39,
+                        "durationMicroseconds": 59,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 228
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 54,
+                        "durationMicroseconds": 156,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 229
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 43,
+                        "durationMicroseconds": 52,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "readOnly",
+                        "line": 230
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 51,
+                        "durationMicroseconds": 116,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 227
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 37,
+                        "durationMicroseconds": 194,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 236
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 39,
+                        "durationMicroseconds": 63,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 241
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 54,
+                        "durationMicroseconds": 167,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 242
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 43,
+                        "durationMicroseconds": 53,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "readOnly",
+                        "line": 243
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 51,
+                        "durationMicroseconds": 119,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 240
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 37,
+                        "durationMicroseconds": 265,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 249
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 39,
+                        "durationMicroseconds": 64,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 254
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 54,
+                        "durationMicroseconds": 11963,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 255
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 43,
+                        "durationMicroseconds": 90,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "readOnly",
+                        "line": 256
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 51,
+                        "durationMicroseconds": 153,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 253
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 37,
+                        "durationMicroseconds": 201,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 262
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 35,
+                        "durationMicroseconds": 96,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 263
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 40,
+                        "durationMicroseconds": 3347,
+                        "errorMessage": "Cannot access value for name employeeModel",
+                        "functionName": "onClicked",
+                        "line": 264
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 37,
+                        "durationMicroseconds": 230,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 281
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 40,
+                        "durationMicroseconds": 84,
+                        "errorMessage": "Cannot access value for name employeeModel",
+                        "functionName": "onClicked",
+                        "line": 290
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 39,
+                        "durationMicroseconds": 122,
+                        "errorMessage": "Cannot load property text from (component in C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Employee_details.qml)::parent with type QQuickItem.",
+                        "functionName": "text",
+                        "line": 285
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 54,
+                        "durationMicroseconds": 168,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 287
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 52,
+                        "durationMicroseconds": 187,
+                        "errorMessage": "",
+                        "functionName": "verticalAlignment",
+                        "line": 288
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 20,
+                        "durationMicroseconds": 254,
+                        "errorMessage": "",
+                        "functionName": "onClicked",
+                        "line": 327
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 24,
+                        "durationMicroseconds": 248,
+                        "errorMessage": "",
+                        "functionName": "right",
+                        "line": 308
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 25,
+                        "durationMicroseconds": 226,
+                        "errorMessage": "",
+                        "functionName": "bottom",
+                        "line": 309
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 19,
+                        "durationMicroseconds": 129,
+                        "errorMessage": "Cannot load property text from (component in C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Employee_details.qml)::parent with type QQuickItem.",
+                        "functionName": "text",
+                        "line": 320
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 34,
+                        "durationMicroseconds": 168,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 323
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 32,
+                        "durationMicroseconds": 137,
+                        "errorMessage": "",
+                        "functionName": "verticalAlignment",
+                        "line": 324
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 26,
+                        "durationMicroseconds": 454,
+                        "errorMessage": "",
+                        "functionName": "standardButtons",
+                        "line": 334
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 21,
+                        "durationMicroseconds": 1318,
+                        "errorMessage": "QJSValue has no property called employeeID",
+                        "functionName": "onAccepted",
+                        "line": 347
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 20,
+                        "durationMicroseconds": 510,
+                        "errorMessage": "Cannot access value for name stackView",
+                        "functionName": "onClicked",
+                        "line": 378
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 24,
+                        "durationMicroseconds": 251,
+                        "errorMessage": "",
+                        "functionName": "right",
+                        "line": 373
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 25,
+                        "durationMicroseconds": 205,
+                        "errorMessage": "",
+                        "functionName": "bottom",
+                        "line": 374
+                    }
+                ],
+                "filepath": "C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Employee_details.qml"
+            }
+        ],
+        "moduleId": "Pharmease_app(appPharmease_app)"
+    }
+]

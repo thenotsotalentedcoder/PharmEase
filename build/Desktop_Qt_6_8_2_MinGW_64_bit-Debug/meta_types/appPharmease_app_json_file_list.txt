@@ -1,0 +1,2 @@
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/appPharmease_app_autogen/include/../FVSNT77ZGO/moc_databasemanager.cpp.json
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/appPharmease_app_autogen/include/../FVSNT77ZGO/moc_mainwindow.cpp.json

@@ -1,0 +1,17 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="qml/App.qml">C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/App.qml</file>
+    <file alias="qml/Screen01.qml">C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Screen01.qml</file>
+    <file alias="qml/Employee_details.qml">C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Employee_details.qml</file>
+    <file alias="qml/Login_administrator.qml">C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Login_administrator.qml</file>
+    <file alias="qml/Login_employee.qml">C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Login_employee.qml</file>
+    <file alias="qml/Main_administrator.qml">C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Main_administrator.qml</file>
+    <file alias="qml/Main_employee.qml">C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Main_employee.qml</file>
+    <file alias="qml/Manage_stock.qml">C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Manage_stock.qml</file>
+    <file alias="qml/Place_order.qml">C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Place_order.qml</file>
+    <file alias="qml/Sales_report.qml">C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Sales_report.qml</file>
+    <file alias="qml/Track_inventory.qml">C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/Track_inventory.qml</file>
+    <file alias="qml/View_orders.qml">C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/View_orders.qml</file>
+  </qresource>
+</RCC>
+

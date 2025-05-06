@@ -1,0 +1,16 @@
+module Pharmease_app
+typeinfo appPharmease_app.qmltypes
+prefer :/Pharmease_app/
+App 1.0 qml/App.qml
+Screen01 1.0 qml/Screen01.qml
+Employee_details 1.0 qml/Employee_details.qml
+Login_administrator 1.0 qml/Login_administrator.qml
+Login_employee 1.0 qml/Login_employee.qml
+Main_administrator 1.0 qml/Main_administrator.qml
+Main_employee 1.0 qml/Main_employee.qml
+Manage_stock 1.0 qml/Manage_stock.qml
+Place_order 1.0 qml/Place_order.qml
+Sales_report 1.0 qml/Sales_report.qml
+Track_inventory 1.0 qml/Track_inventory.qml
+View_orders 1.0 qml/View_orders.qml
+

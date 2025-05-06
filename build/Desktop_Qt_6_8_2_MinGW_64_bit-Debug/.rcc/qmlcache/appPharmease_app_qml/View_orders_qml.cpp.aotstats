@@ -1,0 +1,372 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 16,
+                        "durationMicroseconds": 569,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 11
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 17,
+                        "durationMicroseconds": 178,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 12
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 20,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on model.",
+                        "functionName": "model",
+                        "line": 32
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 28,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on onClicked.",
+                        "functionName": "onClicked",
+                        "line": 61
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 27,
+                        "durationMicroseconds": 124,
+                        "errorMessage": "Cannot load property text from (component in C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/View_orders.qml)::parent with type QQuickItem.",
+                        "functionName": "text",
+                        "line": 55
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 42,
+                        "durationMicroseconds": 170,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 57
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 40,
+                        "durationMicroseconds": 150,
+                        "errorMessage": "",
+                        "functionName": "verticalAlignment",
+                        "line": 58
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 28,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on onClicked.",
+                        "functionName": "onClicked",
+                        "line": 91
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 27,
+                        "durationMicroseconds": 111,
+                        "errorMessage": "Cannot load property text from (component in C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/View_orders.qml)::parent with type QQuickItem.",
+                        "functionName": "text",
+                        "line": 85
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 42,
+                        "durationMicroseconds": 153,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 87
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 40,
+                        "durationMicroseconds": 252,
+                        "errorMessage": "",
+                        "functionName": "verticalAlignment",
+                        "line": 88
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 24,
+                        "durationMicroseconds": 173,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 104
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 28,
+                        "durationMicroseconds": 264,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 113
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 45,
+                        "durationMicroseconds": 274,
+                        "errorMessage": "",
+                        "functionName": "verticalCenter",
+                        "line": 114
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 67,
+                        "durationMicroseconds": 183,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 115
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 70,
+                        "durationMicroseconds": 175,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 116
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 67,
+                        "durationMicroseconds": 170,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 117
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 70,
+                        "durationMicroseconds": 170,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 118
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 72,
+                        "durationMicroseconds": 151,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 119
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 62,
+                        "durationMicroseconds": 141,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 120
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 66,
+                        "durationMicroseconds": 144,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 121
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 70,
+                        "durationMicroseconds": 146,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 122
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 63,
+                        "durationMicroseconds": 156,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 123
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 24,
+                        "durationMicroseconds": 188,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 129
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 38,
+                        "durationMicroseconds": 81,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 162
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 71,
+                        "durationMicroseconds": 121,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 162
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 38,
+                        "durationMicroseconds": 55,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 165
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 74,
+                        "durationMicroseconds": 117,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 165
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 38,
+                        "durationMicroseconds": 60,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 168
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 76,
+                        "durationMicroseconds": 107,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 168
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 38,
+                        "durationMicroseconds": 51,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 171
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 74,
+                        "durationMicroseconds": 128,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 171
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 38,
+                        "durationMicroseconds": 51,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 174
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 76,
+                        "durationMicroseconds": 123,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 174
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 38,
+                        "durationMicroseconds": 50,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 177
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 72,
+                        "durationMicroseconds": 106,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 177
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 38,
+                        "durationMicroseconds": 58,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 180
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 77,
+                        "durationMicroseconds": 112,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 180
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 38,
+                        "durationMicroseconds": 61,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 183
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 83,
+                        "durationMicroseconds": 169,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 183
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 38,
+                        "durationMicroseconds": 53,
+                        "errorMessage": "Cannot access value for name model",
+                        "functionName": "text",
+                        "line": 186
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 68,
+                        "durationMicroseconds": 134,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 186
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 24,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on onClicked.",
+                        "functionName": "onClicked",
+                        "line": 200
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 28,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on right.",
+                        "functionName": "right",
+                        "line": 195
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 29,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on bottom.",
+                        "functionName": "bottom",
+                        "line": 196
+                    }
+                ],
+                "filepath": "C:/Users/Admin/OneDrive/Documents/Pharmease_app/qml/View_orders.qml"
+            }
+        ],
+        "moduleId": "Pharmease_app(appPharmease_app)"
+    }
+]

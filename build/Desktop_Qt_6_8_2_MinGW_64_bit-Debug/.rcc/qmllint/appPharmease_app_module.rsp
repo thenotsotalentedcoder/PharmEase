@@ -1,0 +1,10 @@
+-I
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug
+-I
+C:/Qt/6.8.2/mingw_64/qml
+--resource
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/.qt/rcc/qmake_Pharmease_app.qrc
+--resource
+C:/Users/Admin/OneDrive/Documents/Pharmease_app/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/.qt/rcc/appPharmease_app_raw_qml_0.qrc
+--module
+Pharmease_app
