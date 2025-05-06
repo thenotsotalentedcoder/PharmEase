@@ -5,7 +5,7 @@ import QtQuick.Layouts
 Item {
     id: root
     anchors.fill: parent
-    property StackView stackView
+    property StackView stackView: null
 
     Rectangle {
         id: bgrectangle
@@ -27,11 +27,9 @@ Item {
                     Layout.preferredWidth: parent.width * 0.4
                     Layout.fillHeight: true
 
-                    Image {
-                        id: layer3image
+                    Rectangle {
                         anchors.fill: parent
-                        source: "file:///C:/Users/Admin/Downloads/medicine-capsules-global-health-with-geometric-pattern-digital-remix.jpg"
-                        fillMode: Image.PreserveAspectCrop
+                        color: "#5b99d6"
 
                         Column {
                             anchors.left: parent.left
@@ -43,7 +41,7 @@ Item {
 
                             Text {
                                 text: qsTr("PharmEase")
-                                color: "#1c241e"
+                                color: "#ffffff"
                                 font.pixelSize: 45
                                 font.bold: true
                                 font.family: "Courier"
@@ -51,7 +49,7 @@ Item {
 
                             Text {
                                 text: qsTr("Simplifying Pharmacy Management with efficiency and care.")
-                                color: "#1c241e"
+                                color: "#ffffff"
                                 font.pixelSize: 20
                                 wrapMode: Text.WordWrap
                                 font.family: "Tahoma"
@@ -92,7 +90,16 @@ Item {
                                 color: "#5b99d6"
                                 radius: 20
                             }
-                            onClicked: stackView.push("Login_administrator.qml")
+                            contentItem: Text {
+                                text: parent.text
+                                color: "white"
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                                font.bold: parent.font.bold
+                                font.family: parent.font.family
+                                font.pointSize: parent.font.pointSize
+                            }
+                            onClicked: stackView.push("qrc:/qml/Login_administrator.qml", {"stackView": stackView})
                         }
 
                         Button {
@@ -106,12 +113,31 @@ Item {
                                 color: "#5b99d6"
                                 radius: 20
                             }
-                            onClicked: stackView.push("Login_employee.qml")
+                            contentItem: Text {
+                                text: parent.text
+                                color: "white"
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                                font.bold: parent.font.bold
+                                font.family: parent.font.family
+                                font.pointSize: parent.font.pointSize
+                            }
+                            onClicked: stackView.push("qrc:/qml/Login_employee.qml", {"stackView": stackView})
                         }
+                    }
+
+                    // Connect to database status
+                    Text {
+                        text: dbManager.isDatabaseConnected() ? 
+                              "Connected to database" : 
+                              "Not connected to database"
+                        color: dbManager.isDatabaseConnected() ? "#4CAF50" : "#F44336"
+                        font.pixelSize: 14
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        visible: true
                     }
                 }
             }
         }
     }
 }
-

@@ -5,21 +5,12 @@ import QtQuick.Layouts
 Item {
     id: root
     anchors.fill: parent
-
-    Image {
-        id: bgimage
-        anchors.fill: parent
-        source: "file:///C:/Users/Admin/Downloads/medicine-capsules-global-health-with-geometric-pattern-digital-remix.jpg"
-    }
+    property StackView stackView: null
 
     Rectangle {
         id: bgrectangle
         color: "#daeae6"
         anchors.fill: parent
-        anchors.leftMargin: 110
-        anchors.rightMargin: 110
-        anchors.topMargin: 90
-        anchors.bottomMargin: 110
 
         ColumnLayout {
             anchors.fill: parent
@@ -27,23 +18,25 @@ Item {
             Text {
                 id: employeeid
                 color: "#5b99d6"
-                text: qsTr("/*Employee ID*/")
-                font.pixelSize: 30
+                text: qsTr("Employee Portal")
+                font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.family: "Tahoma"
+                font.bold: true
+                Layout.topMargin: 40
             }
 
             Text {
                 id: employeedesignation
                 color: "#5b99d6"
-                text: qsTr("/*Employee Designation*/")
+                text: qsTr("Welcome to PharmEase")
                 font.pixelSize: 30
                 horizontalAlignment: Text.AlignHCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.family: "Tahoma"
+                Layout.topMargin: 10
             }
-
 
             // Images Row
             GridLayout {
@@ -54,6 +47,7 @@ Item {
                 columnSpacing: 50
                 Layout.leftMargin: 120
                 Layout.rightMargin: 120
+                Layout.topMargin: 40
 
                 // Place Order
                 Column {
@@ -61,19 +55,24 @@ Item {
                     Layout.alignment: Qt.AlignVCenter
                     Layout.fillWidth: true
 
-
-                    Image {
-                        id: placeorder
+                    Rectangle {
                         width: 160
                         height: 160
-                        source: "file:///C:/Users/Admin/Downloads/new order.jpg"
-                        fillMode: Image.PreserveAspectFit
+                        color: "#7cc660"
+                        radius: 80
                         anchors.horizontalCenter: parent.horizontalCenter
+                        Text {
+                            text: "🛒"
+                            font.pixelSize: 80
+                            anchors.centerIn: parent
+                        }
+                        
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: stackView.push("Place_order.qml")
+                            onClicked: stackView.push("qrc:/qml/Place_order.qml")
                         }
                     }
+                    
                     Text {
                         color: "#0f3861"
                         text: "Place New Order"
@@ -92,18 +91,24 @@ Item {
                     Layout.alignment: Qt.AlignVCenter
                     Layout.fillWidth: true
 
-                    Image {
-                        id: vieworder
+                    Rectangle {
                         width: 160
                         height: 160
-                        source: "file:///C:/Users/Admin/Downloads/view order.jpg"
-                        fillMode: Image.PreserveAspectFit
+                        color: "#3c61b1"
+                        radius: 80
                         anchors.horizontalCenter: parent.horizontalCenter
+                        Text {
+                            text: "📋"
+                            font.pixelSize: 80
+                            anchors.centerIn: parent
+                        }
+                        
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: stackView.push("View_orders.qml")
+                            onClicked: stackView.push("qrc:/qml/View_orders.qml")
                         }
                     }
+                    
                     Text {
                         color: "#0f3861"
                         text: "View Orders and Sales"
@@ -122,18 +127,24 @@ Item {
                     Layout.alignment: Qt.AlignVCenter
                     Layout.fillWidth: true
 
-                    Image {
-                        id: inventory
+                    Rectangle {
                         width: 160
                         height: 160
-                        source: "file:///C:/Users/Admin/Downloads/inventory.png"
-                        fillMode: Image.PreserveAspectFit
+                        color: "#FF9800"
+                        radius: 80
                         anchors.horizontalCenter: parent.horizontalCenter
+                        Text {
+                            text: "📊"
+                            font.pixelSize: 80
+                            anchors.centerIn: parent
+                        }
+                        
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: stackView.push("Track_inventory.qml")
+                            onClicked: stackView.push("qrc:/qml/Track_inventory.qml")
                         }
                     }
+                    
                     Text {
                         color: "#0f3861"
                         text: "Track Inventory"
@@ -152,19 +163,24 @@ Item {
                     Layout.alignment: Qt.AlignVCenter
                     Layout.fillWidth: true
 
-
-                    Image {
-                        id: stock
+                    Rectangle {
                         width: 160
                         height: 160
-                        source: "file:///C:/Users/Admin/Downloads/stock.png"
-                        fillMode: Image.PreserveAspectFit
+                        color: "#E91E63"
+                        radius: 80
                         anchors.horizontalCenter: parent.horizontalCenter
+                        Text {
+                            text: "📦"
+                            font.pixelSize: 80
+                            anchors.centerIn: parent
+                        }
+                        
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: stackView.push("Manage_stock.qml")
+                            onClicked: stackView.push("qrc:/qml/Manage_stock.qml")
                         }
                     }
+                    
                     Text {
                         color: "#0f3861"
                         text: "Manage Stock"
@@ -181,12 +197,12 @@ Item {
             // Back Button
             Button {
                 id: backbutton
-                Layout.preferredWidth: 50
-                Layout.preferredHeight: 30
-                text: "Back"
+                Layout.preferredWidth: 100
+                Layout.preferredHeight: 40
+                text: "Logout"
                 Layout.alignment: Qt.AlignRight | Qt.AlignBottom
-                Layout.rightMargin: 10
-                Layout.bottomMargin: 10
+                Layout.rightMargin: 20
+                Layout.bottomMargin: 20
                 background: Rectangle {
                     color: parent.down ? "#d6d6d6" : "#f6f6f6"
                     border.color: "#707070"

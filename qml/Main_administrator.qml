@@ -5,21 +5,12 @@ import QtQuick.Layouts
 Item {
     id: root
     anchors.fill: parent
-
-    Image {
-        id: bgimage
-        anchors.fill: parent
-        source: "file:///C:/Users/Admin/Downloads/medicine-capsules-global-health-with-geometric-pattern-digital-remix.jpg"
-    }
+    property StackView stackView: null
 
     Rectangle {
         id: bgrectangle
         color: "#daeae6"
         anchors.fill: parent
-        anchors.leftMargin: 110
-        anchors.rightMargin: 110
-        anchors.topMargin: 90
-        anchors.bottomMargin: 110
 
         ColumnLayout {
             anchors.fill: parent
@@ -33,6 +24,7 @@ Item {
                 font.pixelSize: 50
                 horizontalAlignment: Text.AlignHCenter
                 font.family: "Tahoma"
+                Layout.topMargin: 40
             }
 
             // Image and Button Row
@@ -51,18 +43,24 @@ Item {
                     spacing: 20
                     Layout.fillWidth: true
 
-                    Image {
-                        id: viewemployee
+                    Rectangle {
                         width: 160
                         height: 160
-                        source: "file:///C:/Users/Admin/Downloads/employee.png"
-                        fillMode: Image.PreserveAspectCrop
+                        color: "#7cc660"
+                        radius: 80
                         anchors.horizontalCenter: parent.horizontalCenter
+                        Text {
+                            text: "👥"
+                            font.pixelSize: 80
+                            anchors.centerIn: parent
+                        }
+                        
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: stackView.push("Employee_details.qml")
+                            onClicked: stackView.push("qrc:/qml/Employee_details.qml")
                         }
                     }
+                    
                     Text {
                         color: "#0f3861"
                         text: "Employee Details"
@@ -81,18 +79,24 @@ Item {
                     spacing: 20
                     Layout.fillWidth: true
 
-                    Image {
-                        id: inventory
+                    Rectangle {
                         width: 160
                         height: 160
-                        source: "file:///C:/Users/Admin/Downloads/inventory.png"
-                        fillMode: Image.PreserveAspectFit
+                        color: "#3c61b1"
+                        radius: 80
                         anchors.horizontalCenter: parent.horizontalCenter
+                        Text {
+                            text: "📊"
+                            font.pixelSize: 80
+                            anchors.centerIn: parent
+                        }
+                        
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: stackView.push("Track_inventory.qml")
+                            onClicked: stackView.push("qrc:/qml/Track_inventory.qml")
                         }
                     }
+                    
                     Text {
                         color: "#0f3861"
                         text: "Track Inventory"
@@ -111,18 +115,24 @@ Item {
                     spacing: 20
                     Layout.fillWidth: true
 
-                    Image {
-                        id: stock
+                    Rectangle {
                         width: 160
                         height: 160
-                        source: "file:///C:/Users/Admin/Downloads/stock.png"
-                        fillMode: Image.PreserveAspectFit
+                        color: "#FF9800"
+                        radius: 80
                         anchors.horizontalCenter: parent.horizontalCenter
+                        Text {
+                            text: "📦"
+                            font.pixelSize: 80
+                            anchors.centerIn: parent
+                        }
+                        
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: stackView.push("Manage_stock.qml")
+                            onClicked: stackView.push("qrc:/qml/Manage_stock.qml")
                         }
                     }
+                    
                     Text {
                         color: "#0f3861"
                         text: "Manage Stock"
@@ -141,18 +151,24 @@ Item {
                     spacing: 20
                     Layout.fillWidth: true
 
-                    Image {
-                        id: salesreport
+                    Rectangle {
                         width: 160
                         height: 160
-                        source: "file:///C:/Users/Admin/Downloads/salesreport.png"
-                        fillMode: Image.PreserveAspectFit
+                        color: "#E91E63"
+                        radius: 80
                         anchors.horizontalCenter: parent.horizontalCenter
+                        Text {
+                            text: "📈"
+                            font.pixelSize: 80
+                            anchors.centerIn: parent
+                        }
+                        
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: stackView.push("Sales_report.qml")
+                            onClicked: stackView.push("qrc:/qml/Sales_report.qml")
                         }
                     }
+                    
                     Text {
                         color: "#0f3861"
                         text: "Generate Sales Report"
@@ -168,12 +184,12 @@ Item {
 
             Button {
                 id: backbutton
-                Layout.preferredWidth: 50
-                Layout.preferredHeight: 30
-                text: "Back"
+                Layout.preferredWidth: 100
+                Layout.preferredHeight: 40
+                text: "Logout"
                 Layout.alignment: Qt.AlignRight | Qt.AlignBottom
-                Layout.rightMargin: 10
-                Layout.bottomMargin: 10
+                Layout.rightMargin: 20
+                Layout.bottomMargin: 20
                 background: Rectangle {
                     color: parent.down ? "#d6d6d6" : "#f6f6f6"
                     border.color: "#707070"

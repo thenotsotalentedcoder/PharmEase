@@ -5,6 +5,7 @@ import QtQuick.Layouts
 Item {
     id: root
     anchors.fill: parent
+    property StackView stackView: null
 
     Rectangle {
         id: bgrectangle
@@ -26,12 +27,9 @@ Item {
                     Layout.preferredWidth: parent.width * 0.4
                     Layout.fillHeight: true
 
-                    Image {
-                        id: layer3image
+                    Rectangle {
                         anchors.fill: parent
-                        source: "file:///C:/Users/Admin/Downloads/medicine-capsules-global-health-with-geometric-pattern-digital-remix.jpg"
-                        fillMode: Image.PreserveAspectCrop
-                    }
+                        color: "#5b99d6"
 
                         Column {
                             anchors.left: parent.left
@@ -43,7 +41,7 @@ Item {
 
                             Text {
                                 text: qsTr("PharmEase")
-                                color: "#1c241e"
+                                color: "#ffffff"
                                 font.pixelSize: 45
                                 font.bold: true
                                 font.family: "Courier"
@@ -51,13 +49,14 @@ Item {
 
                             Text {
                                 text: qsTr("Simplifying Pharmacy Management with efficiency and care.")
-                                color: "#1c241e"
+                                color: "#ffffff"
                                 font.pixelSize: 20
                                 wrapMode: Text.WordWrap
                                 font.family: "Tahoma"
                                 width: 350
                             }
                         }
+                    }
                 }
 
                 // Right Login Form Section
@@ -71,11 +70,10 @@ Item {
                     Text {
                         id: adminlogin
                         color: "#5b99d6"
-                        text: qsTr("Login Admin")
+                        text: qsTr("Admin Login")
                         font.pixelSize: 30
                         horizontalAlignment: Text.AlignHCenter
-                        anchors.top: parent
-                        anchors.topMargin: 200
+                        anchors.horizontalCenter: parent.horizontalCenter
                         font.family: "Tahoma"
                     }
 
@@ -85,10 +83,12 @@ Item {
                         text: qsTr("Enter your password here.")
                         font.pixelSize: 15
                         font.family: "Tahoma"
+                        anchors.horizontalCenter: parent.horizontalCenter
                     }
 
                     Item {
                         Layout.preferredHeight: 20
+                        width: 1
                     }
 
                     TextField {
@@ -98,6 +98,7 @@ Item {
                         placeholderText: "Password"
                         echoMode: TextInput.Password
                         font.pixelSize: 15
+                        anchors.horizontalCenter: parent.horizontalCenter
                         background: Rectangle {
                             color: "white"
                             radius: 5
@@ -105,17 +106,21 @@ Item {
                         }
                     }
 
-                    Item {
-                        Layout.fillHeight: true
+                    Text {
+                        id: loginError
+                        color: "#e74c3c"
+                        text: qsTr("Invalid password. Please try again.")
+                        font.pixelSize: 14
+                        visible: false
+                        anchors.horizontalCenter: parent.horizontalCenter
                     }
 
                     Button {
                         id: loginButton
-                        width: 380
+                        width: 330
                         height: 45
                         Layout.alignment: Qt.AlignHCenter
-                        anchors.bottom: parent
-                        anchors.bottomMargin: 100
+                        anchors.horizontalCenter: parent.horizontalCenter
                         text: "Login"
                         font.bold: true
                         font.pointSize: 13
@@ -124,29 +129,25 @@ Item {
                             radius: 10
                         }
                         onClicked: {
-                                const password = passwordInput.text;
-                                if (dbManager.verifyAdminLogin(password)) {
-                                    console.log("Admin login successful");
-                                    stackView.push("Main_administrator.qml");  // or your admin main screen
-                                } else {
-                                    console.log("Invalid admin password");
-                                    // Optionally show an error popup or visual feedback
-                                }
+                            const password = passwordInput.text;
+                            if (dbManager.verifyAdminLogin(password)) {
+                                console.log("Admin login successful");
+                                loginError.visible = false;
+                                stackView.push("qrc:/qml/Main_administrator.qml");
+                            } else {
+                                console.log("Invalid admin password");
+                                loginError.visible = true;
+                                passwordInput.text = "";
+                            }
                         }
-                    }
-                }
-                    Item {
-                        Layout.fillHeight: true
                     }
 
                     Button {
                         id: backbutton
-                        Layout.preferredWidth: 50
-                        Layout.preferredHeight: 30
+                        width: 100
+                        height: 30
                         text: "Back"
-                        Layout.alignment: Qt.AlignRight | Qt.AlignBottom
-                        Layout.rightMargin: 10
-                        Layout.bottomMargin: 10
+                        anchors.horizontalCenter: parent.horizontalCenter
                         background: Rectangle {
                             color: parent.down ? "#d6d6d6" : "#f6f6f6"
                             border.color: "#707070"
@@ -158,4 +159,4 @@ Item {
             }
         }
     }
-
+}

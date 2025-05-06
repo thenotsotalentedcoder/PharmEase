@@ -6,6 +6,12 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
+#include <QVariant>
+#include <QVariantList>
+#include <QVariantMap>
+#include <QCoreApplication>
+#include <QFile>
+#include <QDir>
 
 #include "customer.h"
 #include "supplier.h"
@@ -19,11 +25,13 @@
 #include <vector>
 #include <QString>
 
-
 class DatabaseManager : public QObject {
     Q_OBJECT
 private:
     QSqlDatabase db;
+    bool initializeDatabase();
+    QString getDatabasePath();
+
 public:
     explicit DatabaseManager(QObject *parent = nullptr);
     ~DatabaseManager();
@@ -31,127 +39,119 @@ public:
     // Customer Operations
     Q_INVOKABLE int addCustomer(QString name, QString contact);
     Q_INVOKABLE bool removeCustomer(int customer_id);
-    // Q_INVOKABLE bool updateCustomer(int customer_id, const QString &name, const QString &contact);
-    QString getCustomerName(int customer_id);
+    Q_INVOKABLE QString getCustomerName(int customer_id);
 
     // Medicine Operations
     Q_INVOKABLE bool addMedicine(const QString &name, const QString &supplier, double price, int stock, const QString &expiry_date);
-    // Q_INVOKABLE bool removeMedicine(int medicine_id);
-    // Q_INVOKABLE bool updateMedicine(int medicine_id, double price, int stock, const QString &expiry_date);
-    QString getMedicineName(int medicineID);
+    Q_INVOKABLE QString getMedicineName(int medicineID);
+    Q_INVOKABLE QVariantList getMedicineList();
 
     // Stock Operations
-    bool addStock(int medicine_id, int quantity);
-    bool updateStock(int medicine_id, int quantity);
-    bool checkStock(int medicine_id);
-    QList<int> getLowStockMedicines(int threshold);
+    Q_INVOKABLE bool addStock(int medicine_id, int quantity);
+    Q_INVOKABLE bool checkStock(int medicine_id);
+    Q_INVOKABLE QList<int> getLowStockMedicines(int threshold);
 
     // Order & Order_Details Operations
-    int createOrder( QString customer_name);
-    bool addOrderDetails(int order_id, int medicine_id, int quantity, double price);
-    bool removeOrderDetails(int ordered_item_id);
-    bool finalizeOrder(int order_id);
-    QSqlQuery getOrder(int order_id);
+    Q_INVOKABLE int createOrder(QString customer_name);
+    Q_INVOKABLE bool addOrderDetails(int order_id, int medicine_id, int quantity, double price);
+    Q_INVOKABLE bool finalizeOrder(int order_id);
+    Q_INVOKABLE bool placeOrder(QString medicineName, int requiredQuantity);
+    Q_INVOKABLE int startOrder(QString customerName);
+    Q_INVOKABLE bool confirmOrder(int order_id);
+    Q_INVOKABLE QVariantList getOrdersList();
 
-    // Sales Operations
-    // Q_INVOKABLE bool addSale(int order_id, const QString &med_name, const QString &payment_method, double total_amount, const QString &date);
-    QSqlQuery getSalesReport(const QString &start_date, const QString &end_date);
-
-    // Prescription Operations
-    bool addPrescription(const QString &doctor_name, const QString &customer_name, const QString &medicine_name, int dosage);
-    QSqlQuery getPrescription(int prescription_id);
-
-    // Staff Operations
-    bool addStaff(const QString &name, const QString &role, double salary, const QString &contact_no);
-    bool removeStaff(int employee_id);
-    QSqlQuery getStaff(int employee_id);
-
+    // Additional order operations
+    Q_INVOKABLE bool addOrder(int orderID, const QString& customerName, const QString& orderDate, const QString& status);
+    Q_INVOKABLE bool addMedicineToOrder(int orderID, int medID, int quantity, double price);
+    Q_INVOKABLE bool removeOrderedItem(int orderID);
+    Q_INVOKABLE void displayOrderInfo(int orderID);
+    Q_INVOKABLE bool updateOrderStatus(int orderID, const QString& status);
+    Q_INVOKABLE int getAvailableStock(int medicineID);
+    Q_INVOKABLE double getPriceOfMedicine(int medicineID);
 
     // Discount Operations
-    bool addDiscount(const QString &applicable_medicine, double discount_percentage);
-    QSqlQuery getDiscount(int discount_id);
-    bool removeDiscount(int discountID);
-    double getDiscount(const QString& medName);
-    bool addCustomer(Customer* customer);
-    bool updateCustomer(Customer* customer);
-    bool addSupplier(Supplier* supplier);
-    bool updateSupplier(Supplier* supplier);
-    bool removeSupplier(int supplierID);
+    Q_INVOKABLE bool addDiscount(const QString &applicable_medicine, double discount_percentage);
+    Q_INVOKABLE bool removeDiscount(int discountID);
+    Q_INVOKABLE double getDiscount(const QString& medName);
+
+    // Customer and Supplier Operations
+    Q_INVOKABLE bool addCustomer(Customer* customer);
+    Q_INVOKABLE bool updateCustomer(Customer* customer);
+    Q_INVOKABLE bool addSupplier(Supplier* supplier);
+    Q_INVOKABLE bool updateSupplier(Supplier* supplier);
+    Q_INVOKABLE bool removeSupplier(int supplierID);
 
     // Medicine-related functions
-    int insertMedicine(const QString& name, const QString& supplier, double price, const QString& expiry_date);
-    bool removeMeds(int medicineID);
-    bool checkStockByMedicineID(int medicineID);
-    bool checkStockByStockID(int stockID);
-    bool removeStock(int medID, int quantity);
-    bool isStockAvailable(int medicineID, int requiredQty);
-
-
-    bool checkMedicineByStockID(int stockID);  // Declare function
-    bool checkMedicineByMedicineID(int medicineID);
-
-    bool removeOrderedMeds(int medID, int quantity);
-    void displayMedicineInfo();
-    int startOrder(QString customerName);
-    bool placeOrder(QString medicineName, int requiredQuantity);
-    bool confirmOrder(int order_id); //  order confirmation
+    Q_INVOKABLE int insertMedicine(const QString& name, const QString& supplier, double price, const QString& expiry_date);
+    Q_INVOKABLE bool removeMeds(int medicineID);
+    Q_INVOKABLE bool checkStockByMedicineID(int medicineID);
+    Q_INVOKABLE bool checkStockByStockID(int stockID);
+    Q_INVOKABLE bool removeStock(int medID, int quantity);
+    Q_INVOKABLE bool isStockAvailable(int medicineID, int requiredQty);
+    Q_INVOKABLE bool checkMedicineByStockID(int stockID);
+    Q_INVOKABLE bool checkMedicineByMedicineID(int medicineID);
+    Q_INVOKABLE bool removeOrderedMeds(int medID, int quantity);
+    Q_INVOKABLE void displayMedicineInfo();
+    Q_INVOKABLE int getMedicineIDByName(QString medName);
 
     // Stock-related functions
-    bool removeExpiredMeds();
-    void displayStockInfo();
-    bool addMeds(int orderID, int medID, int quantity, double price);
+    Q_INVOKABLE bool removeExpiredMeds();
+    Q_INVOKABLE void displayStockInfo();
+    Q_INVOKABLE bool addMeds(int orderID, int medID, int quantity, double price);
 
-    // Order-related functions
-    int getMedicineIDByName(QString medName);
-    bool addOrder(int orderID, const QString& customerName, const QString& orderDate, const QString& status);
-    bool addMedicineToOrder(int orderID, int medID, int quantity, double price);
-    bool removeOrderedItem(int orderID);
-    void displayOrderInfo(int orderID);
-    bool updateOrderStatus(int orderID, const QString& status);
-    int getAvailableStock(int medicineID);
-    double getPriceOfMedicine(int medicineID);
+    // Billing and invoice generation
+    Q_INVOKABLE double calculateSubtotal(int orderID);
+    Q_INVOKABLE double applyDiscount(double subtotal, double discountPercentage);
+    Q_INVOKABLE int displayReceipt(int orderID, double discountPercent);
+    Q_INVOKABLE bool finalizeSale(int orderID, const QString& paymentMethod, double totalAmount);
 
-    //billing and invoice generation
-    double calculateSubtotal(int orderID);
-    double applyDiscount(double subtotal, double discountPercentage);
-    int displayReceipt(int orderID, double discountPercent);
-    bool finalizeSale(int orderID, const QString& paymentMethod, double totalAmount);
-
-    //sales report functions
+    // Sales report functions
     Q_INVOKABLE double getTotalSales();
-    QString getMUPM();
-    QPair<QString, double> getBestSellingItem();
-    double getHighestSale();
-    int getTotalTransactions();
-    double getAverageSale();
-    QVector<QPair<QString,double>> getDailySales();
+    Q_INVOKABLE QString getMUPM();
+    Q_INVOKABLE QPair<QString, double> getBestSellingItem();
+    Q_INVOKABLE QVariantMap getBestSellingItemAsMap();
+    Q_INVOKABLE double getHighestSale();
+    Q_INVOKABLE int getTotalTransactions();
+    Q_INVOKABLE double getAverageSale();
+    Q_INVOKABLE QVariantList getDailySalesData();
 
+    // Authentication
     Q_INVOKABLE bool verifyEmployeeLogin(const QString& username, const QString& password);
     Q_INVOKABLE bool verifyAdminLogin(const QString& password);
 
+    // Employee management
     Q_INVOKABLE QVariantList getAllEmployeesList();
     Q_INVOKABLE bool addEmployee(const QString &name, const QString &role, const QString &salary, const QString &contact);
     Q_INVOKABLE bool updateEmployee(const int employeeId, const QString &name, const QString &role, const QString &salary, const QString &contact);
     Q_INVOKABLE bool deleteEmployee(const int employeeId);
 
-
-    void getStockInfo();
-    void searchMedicine(const QString &searchText);
-    void searchSupplier(const QString &searchText);
-    bool addStockInfo(int medicineId, const QString &name, const QString &supplier,
-                      double price, const QString &expiryDate, int quantity);
-    bool updateStock(int medicineId, const QString &name, const QString &supplier,
+    // Stock management UI functions
+    Q_INVOKABLE void getStockInfo();
+    Q_INVOKABLE void searchMedicine(const QString &searchText);
+    Q_INVOKABLE void searchSupplier(const QString &searchText);
+    Q_INVOKABLE bool addStockInfo(int medicineId, const QString &name, const QString &supplier,
                      double price, const QString &expiryDate, int quantity);
-    bool deleteStock(int medicineId);
+    Q_INVOKABLE bool updateStock(int medicineId, const QString &name, const QString &supplier,
+                     double price, const QString &expiryDate, int quantity);
+    Q_INVOKABLE bool deleteStock(int medicineId);
 
-    // Add in signals:
-    signals:
+    // Get inventory data
+    Q_INVOKABLE QVariantList getInventoryData();
+    
+    // New utility methods
+    Q_INVOKABLE bool isDatabaseConnected();
+    Q_INVOKABLE QString getLastError();
+
+signals:
     void stockDataLoaded(QVariantList stockData);
+    void medicineListLoaded(QVariantList medicineList);
+    void orderDataLoaded(QVariantList orderData);
+    void inventoryDataLoaded(QVariantList inventoryData);
     void stockAdded(bool success);
     void stockUpdated(bool success);
     void stockDeleted(bool success);
+    void orderPlaced(bool success, int orderId);
+    void databaseError(QString errorMessage);
 };
 
-
 #endif // DATABASEMANAGER_H
-

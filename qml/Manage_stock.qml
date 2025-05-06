@@ -7,13 +7,14 @@ import QtQml 2.15
 Item {
     id: root
     anchors.fill: parent
+    property StackView stackView: null
 
     // Property to hold the database model
     property var stockModel: []
 
     // Connect to C++ signals
     Connections {
-        target: dbManager // This should be your database manager object exposed to QML
+        target: dbManager
 
         // When data is loaded from database
         function onStockDataLoaded(stockData) {
@@ -28,9 +29,14 @@ Item {
             if (success) {
                 // Refresh the data
                 dbManager.getStockInfo()
+                messageText.text = "Stock added successfully"
+                messageText.color = "#4CAF50"
+                messagePopup.open()
             } else {
                 // Show error message
-                errorDialog.open()
+                messageText.text = "Failed to add stock"
+                messageText.color = "#F44336"
+                messagePopup.open()
             }
         }
 
@@ -39,9 +45,14 @@ Item {
             if (success) {
                 // Refresh the data
                 dbManager.getStockInfo()
+                messageText.text = "Stock updated successfully"
+                messageText.color = "#4CAF50"
+                messagePopup.open()
             } else {
                 // Show error message
-                errorDialog.open()
+                messageText.text = "Failed to update stock"
+                messageText.color = "#F44336"
+                messagePopup.open()
             }
         }
 
@@ -50,9 +61,14 @@ Item {
             if (success) {
                 // Refresh the data
                 dbManager.getStockInfo()
+                messageText.text = "Stock deleted successfully"
+                messageText.color = "#4CAF50"
+                messagePopup.open()
             } else {
                 // Show error message
-                errorDialog.open()
+                messageText.text = "Failed to delete stock"
+                messageText.color = "#F44336"
+                messagePopup.open()
             }
         }
     }
@@ -70,7 +86,7 @@ Item {
 
         ColumnLayout {
             anchors.fill: parent
-            spacing: 50
+            spacing: 20
 
             Text {
                 id: managestock
@@ -81,30 +97,34 @@ Item {
                 horizontalAlignment: Text.AlignHCenter
                 font.bold: true
                 font.family: "Tahoma"
+                Layout.topMargin: 20
             }
 
             RowLayout {
                 Layout.fillWidth: true
-                anchors.left: parent.left
-                anchors.margins: 70
+                Layout.leftMargin: 40
+                Layout.rightMargin: 40
                 spacing: 20
 
                 TextField {
                     id: searchField
                     placeholderText: "Search medicine..."
-                    Layout.preferredWidth: 400
+                    Layout.preferredWidth: 300
                     Layout.preferredHeight: 40
                     onTextChanged: {
-                        dbManager.searchMedicine(searchField.text)
+                        if (text.length > 2) {
+                            dbManager.searchMedicine(text)
+                        }
                     }
                 }
+                
                 Button {
-                    width: 60
-                    height: 30
                     text: "Search"
+                    width: 100
+                    height: 40
                     background: Rectangle {
                         color: "#89ced4"
-                        radius: 40
+                        radius: 5
                     }
                     contentItem: Text {
                         text: parent.text
@@ -115,26 +135,32 @@ Item {
                     }
                     onClicked: dbManager.searchMedicine(searchField.text)
                 }
-                Item {
-                    width: 50
+                
+                Rectangle {
+                    width: 20
                     height: 1
+                    color: "transparent"
                 }
+                
                 TextField {
                     id: searchField1
                     placeholderText: "Search supplier..."
-                    Layout.preferredWidth: 400
+                    Layout.preferredWidth: 300
                     Layout.preferredHeight: 40
                     onTextChanged: {
-                        dbManager.searchSupplier(searchField1.text)
+                        if (text.length > 2) {
+                            dbManager.searchSupplier(text)
+                        }
                     }
                 }
+                
                 Button {
-                    width: 60
                     text: "Search"
-                    height: 30
+                    width: 100
+                    height: 40
                     background: Rectangle {
                         color: "#89ced4"
-                        radius: 40
+                        radius: 5
                     }
                     contentItem: Text {
                         color: "#000000"
@@ -146,42 +172,97 @@ Item {
                     }
                     onClicked: dbManager.searchSupplier(searchField1.text)
                 }
+                
+                Button {
+                    id: resetButton
+                    text: "Reset"
+                    width: 100
+                    height: 40
+                    background: Rectangle {
+                        color: "#f0f0f0"
+                        radius: 5
+                    }
+                    contentItem: Text {
+                        text: parent.text
+                        font.bold: true
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        font.pointSize: 10
+                    }
+                    onClicked: {
+                        searchField.text = ""
+                        searchField1.text = ""
+                        dbManager.getStockInfo()
+                    }
+                }
             }
-
 
             ColumnLayout {
                 id: tableContainer
-                Layout.leftMargin: 60
-                Layout.preferredWidth: parent.width - 165
-                Layout.rightMargin: 70
-                Layout.preferredHeight: 700
+                Layout.leftMargin: 20
+                Layout.rightMargin: 20
+                Layout.fillWidth: true
+                Layout.fillHeight: true
 
                 Rectangle {
-                    Layout.preferredWidth: parent.width
+                    Layout.fillWidth: true
                     Layout.preferredHeight: 40
                     color: "#89ced4"
                     border.color: "black"
                     border.width: 1
 
-                    Grid {
-                        columns: 6
-                        columnSpacing: 10
-                        rowSpacing: 5
-                        width: parent.width
-                        anchors.verticalCenter: parent.verticalCenter
+                    RowLayout {
+                        anchors.fill: parent
+                        spacing: 0
 
-                        Text { text: "Medicine ID"; width: 180; horizontalAlignment: Text.AlignHCenter; font.bold: true }
-                        Text { text: "Medicine Name"; width: 170; horizontalAlignment: Text.AlignHCenter; font.bold: true }
-                        Text { text: "Quantity"; width: 90; horizontalAlignment: Text.AlignHCenter; font.bold: true }
-                        Text { text: "Price per Unit"; width: 120; horizontalAlignment: Text.AlignHCenter; font.bold: true }
-                        Text { text: "Supplier"; width: 190; horizontalAlignment: Text.AlignHCenter; font.bold: true }
-                        Text { text: "Expiry Date"; width: 170; horizontalAlignment: Text.AlignHCenter; font.bold: true }
+                        Text { 
+                            text: "Medicine ID"
+                            horizontalAlignment: Text.AlignHCenter 
+                            font.bold: true
+                            Layout.preferredWidth: 130
+                        }
+                        Text { 
+                            text: "Medicine Name"
+                            horizontalAlignment: Text.AlignHCenter
+                            font.bold: true
+                            Layout.preferredWidth: 170
+                        }
+                        Text { 
+                            text: "Quantity"
+                            horizontalAlignment: Text.AlignHCenter
+                            font.bold: true
+                            Layout.preferredWidth: 90
+                        }
+                        Text { 
+                            text: "Price per Unit"
+                            horizontalAlignment: Text.AlignHCenter
+                            font.bold: true
+                            Layout.preferredWidth: 120
+                            }
+                        Text { 
+                            text: "Supplier"
+                            horizontalAlignment: Text.AlignHCenter
+                            font.bold: true
+                            Layout.preferredWidth: 190
+                        }
+                        Text { 
+                            text: "Expiry Date"
+                            horizontalAlignment: Text.AlignHCenter
+                            font.bold: true
+                            Layout.preferredWidth: 130
+                        }
+                        Text { 
+                            text: "Actions"
+                            horizontalAlignment: Text.AlignHCenter
+                            font.bold: true
+                            Layout.fillWidth: true
+                        }
                     }
                 }
 
                 ScrollView {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: 400
+                    Layout.fillHeight: true
                     clip: true
 
                     ListView {
@@ -193,127 +274,173 @@ Item {
                         delegate: Rectangle {
                             width: tableView.width
                             height: 40
-                            border.color: "black"
+                            color: index % 2 === 0 ? "#f5f5f5" : "white"
+                            border.color: "#e0e0e0"
                             border.width: 1
 
-                            Row {
+                            RowLayout {
                                 anchors.fill: parent
                                 spacing: 0
 
                                 property bool editable: model.isEditable
 
                                 Rectangle {
-                                    width: 180
-                                    height: parent.height
-                                    border.color: "black"
+                                    Layout.preferredWidth: 130
+                                    Layout.fillHeight: true
+                                    color: "transparent"
+                                    border.color: "#e0e0e0"
+                                    
                                     TextInput {
                                         id: idInput
                                         anchors.centerIn: parent
                                         text: model.medicine_id
                                         horizontalAlignment: Text.AlignHCenter
                                         readOnly: !model.isEditable
+                                        width: parent.width - 10
                                     }
                                 }
 
                                 Rectangle {
-                                    width: 180
-                                    height: parent.height
-                                    border.color: "black"
+                                    Layout.preferredWidth: 170
+                                    Layout.fillHeight: true
+                                    color: "transparent"
+                                    border.color: "#e0e0e0"
+                                    
                                     TextInput {
                                         id: nameInput
                                         anchors.centerIn: parent
                                         text: model.name
                                         horizontalAlignment: Text.AlignHCenter
                                         readOnly: !model.isEditable
+                                        width: parent.width - 10
                                     }
                                 }
 
                                 Rectangle {
-                                    width: 105
-                                    height: parent.height
-                                    border.color: "black"
+                                    Layout.preferredWidth: 90
+                                    Layout.fillHeight: true
+                                    color: "transparent"
+                                    border.color: "#e0e0e0"
+                                    
                                     TextInput {
                                         id: quantityInput
                                         anchors.centerIn: parent
                                         text: model.quantity
                                         horizontalAlignment: Text.AlignHCenter
                                         readOnly: !model.isEditable
+                                        width: parent.width - 10
                                     }
                                 }
 
                                 Rectangle {
-                                    width: 140
-                                    height: parent.height
-                                    border.color: "black"
+                                    Layout.preferredWidth: 120
+                                    Layout.fillHeight: true
+                                    color: "transparent"
+                                    border.color: "#e0e0e0"
+                                    
                                     TextInput {
                                         id: priceInput
                                         anchors.centerIn: parent
                                         text: model.price
                                         horizontalAlignment: Text.AlignHCenter
                                         readOnly: !model.isEditable
+                                        width: parent.width - 10
                                     }
                                 }
 
                                 Rectangle {
-                                    width: 190
-                                    height: parent.height
-                                    border.color: "black"
+                                    Layout.preferredWidth: 190
+                                    Layout.fillHeight: true
+                                    color: "transparent"
+                                    border.color: "#e0e0e0"
+                                    
                                     TextInput {
                                         id: supplierInput
                                         anchors.centerIn: parent
                                         text: model.supplier
                                         horizontalAlignment: Text.AlignHCenter
                                         readOnly: !model.isEditable
+                                        width: parent.width - 10
                                     }
                                 }
 
                                 Rectangle {
-                                    width: 180
-                                    height: parent.height
-                                    border.color: "black"
+                                    Layout.preferredWidth: 130
+                                    Layout.fillHeight: true
+                                    color: "transparent"
+                                    border.color: "#e0e0e0"
+                                    
                                     TextInput {
                                         id: expiryInput
                                         anchors.centerIn: parent
                                         text: model.expiry_date
                                         horizontalAlignment: Text.AlignHCenter
                                         readOnly: !model.isEditable
+                                        width: parent.width - 10
                                     }
                                 }
 
-                                Button {
-                                    width: 85
-                                    height: parent.height
-                                    text: model.isEditable ? "Save" : "Edit"
-                                    onClicked: {
-                                        if (model.isEditable) {
-                                            // Save changes to the database
-                                            dbManager.updateStock(
-                                                idInput.text,
-                                                nameInput.text,
-                                                quantityInput.text,
-                                                priceInput.text,
-                                                supplierInput.text,
-                                                expiryInput.text
-                                            )
+                                Rectangle {
+                                    Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                    color: "transparent"
+                                    border.color: "#e0e0e0"
+
+                                    RowLayout {
+                                        anchors.centerIn: parent
+                                        spacing: 10
+
+                                        Button {
+                                            width: 60
+                                            height: 30
+                                            text: model.isEditable ? "Save" : "Edit"
+                                            background: Rectangle {
+                                                color: model.isEditable ? "#4CAF50" : "#2196F3"
+                                                radius: 5
+                                            }
+                                            contentItem: Text {
+                                                text: parent.text
+                                                color: "white"
+                                                horizontalAlignment: Text.AlignHCenter
+                                                verticalAlignment: Text.AlignVCenter
+                                                font.pixelSize: 12
+                                            }
+                                            onClicked: {
+                                                if (model.isEditable) {
+                                                    // Save changes to the database
+                                                    dbManager.updateStock(
+                                                        parseInt(idInput.text),
+                                                        nameInput.text,
+                                                        supplierInput.text,
+                                                        parseFloat(priceInput.text),
+                                                        expiryInput.text,
+                                                        parseInt(quantityInput.text)
+                                                    )
+                                                }
+                                                medicineModel.setProperty(index, "isEditable", !model.isEditable)
+                                            }
                                         }
-                                        medicineModel.setProperty(index, "isEditable", !model.isEditable)
-                                    }
-                                }
 
-                                Button {
-                                    width: 85
-                                    height: parent.height
-                                    text: "Delete"
-                                    Material.background: "#d84c4c"
-                                    contentItem: Text {
-                                        text: parent.text
-                                        color: "white"
-                                        horizontalAlignment: Text.AlignHCenter
-                                        verticalAlignment: Text.AlignVCenter
-                                    }
-                                    onClicked: {
-                                        deleteConfirmDialog.medicineId = model.medicine_id
-                                        deleteConfirmDialog.open()
+                                        Button {
+                                            width: 60
+                                            height: 30
+                                            text: "Delete"
+                                            background: Rectangle {
+                                                color: "#F44336"
+                                                radius: 5
+                                            }
+                                            contentItem: Text {
+                                                text: parent.text
+                                                color: "white"
+                                                horizontalAlignment: Text.AlignHCenter
+                                                verticalAlignment: Text.AlignVCenter
+                                                font.pixelSize: 12
+                                            }
+                                            onClicked: {
+                                                deleteConfirmDialog.medicineId = model.medicine_id
+                                                deleteConfirmDialog.open()
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -322,51 +449,54 @@ Item {
                 }
             }
 
-            Button {
-                id: addStockButton
-                Layout.preferredWidth: 140
-                Layout.preferredHeight: 40
-                text: "Add Stock"
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 20
-                anchors.rightMargin: 150
-                z: 10
-                background: Rectangle {
-                    color: "#fa086960"
-                    radius: 5
+            RowLayout {
+                Layout.fillWidth: true
+                Layout.leftMargin: 20
+                Layout.rightMargin: 20
+                Layout.bottomMargin: 20
+                
+                Button {
+                    id: addStockButton
+                    text: "Add Stock"
+                    Layout.preferredWidth: 120
+                    Layout.preferredHeight: 40
+                    background: Rectangle {
+                        color: "#4CAF50"
+                        radius: 5
+                    }
+                    contentItem: Text {
+                        text: parent.text
+                        color: "white"
+                        font.bold: true
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        font.pixelSize: 14
+                    }
+                    onClicked: stockDialog.open()
                 }
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    font.bold: true
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
+                
+                Item { Layout.fillWidth: true }
+                
+                Button {
+                    id: backbutton
+                    text: "Back"
+                    Layout.preferredWidth: 100
+                    Layout.preferredHeight: 40
+                    background: Rectangle {
+                        color: parent.down ? "#d6d6d6" : "#f6f6f6"
+                        border.color: "#707070"
+                        border.width: 1
+                        radius: 5
+                    }
+                    contentItem: Text {
+                        text: parent.text
+                        color: "#202020"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        font.pixelSize: 14
+                    }
+                    onClicked: stackView.pop()
                 }
-                onClicked: stockDialog.open()
-            }
-            Button {
-                id: backbutton
-                Layout.preferredWidth: 50
-                Layout.preferredHeight: 40
-                text: "Back"
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-                anchors.margins: 20
-                z: 10
-                background: Rectangle {
-                    color: parent.down ? "#d6d6d6" : "#f6f6f6"
-                    border.color: "#707070"
-                    border.width: 1
-                    radius: 0
-                }
-                contentItem: Text {
-                    text: parent.text
-                    color: "#202020"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-                onClicked: stackView.pop()
             }
         }
 
@@ -374,18 +504,77 @@ Item {
             id: stockDialog
             title: "Add New Stock"
             modal: true
+            x: parent.width / 2 - width / 2
+            y: parent.height / 2 - height / 2
+            width: 400
             standardButtons: Dialog.Ok | Dialog.Cancel
 
-            Column {
-                spacing: 10
-                width: 300
+            ColumnLayout {
+                spacing: 15
+                width: parent.width
 
-                TextField { id: newId; placeholderText: "Medicine ID" }
-                TextField { id: newName; placeholderText: "Name" }
-                TextField { id: newQuantity; placeholderText: "Quantity" }
-                TextField { id: newPrice; placeholderText: "Price" }
-                TextField { id: newSupplier; placeholderText: "Supplier Name" }
-                TextField { id: newExpiry; placeholderText: "Expiry Date (YYYY-MM-DD)" }
+                Label {
+                    text: "Medicine ID:"
+                    font.bold: true
+                }
+                TextField { 
+                    id: newId
+                    placeholderText: "Medicine ID"
+                    Layout.fillWidth: true
+                    validator: IntValidator { bottom: 1 }
+                }
+                
+                Label {
+                    text: "Name:"
+                    font.bold: true
+                }
+                TextField { 
+                    id: newName
+                    placeholderText: "Medicine Name"
+                    Layout.fillWidth: true
+                }
+                
+                Label {
+                    text: "Quantity:"
+                    font.bold: true
+                }
+                TextField { 
+                    id: newQuantity
+                    placeholderText: "Quantity"
+                    Layout.fillWidth: true
+                    validator: IntValidator { bottom: 0 }
+                }
+                
+                Label {
+                    text: "Price:"
+                    font.bold: true
+                }
+                TextField { 
+                    id: newPrice
+                    placeholderText: "Price"
+                    Layout.fillWidth: true
+                    validator: DoubleValidator { bottom: 0.0 }
+                }
+                
+                Label {
+                    text: "Supplier:"
+                    font.bold: true
+                }
+                TextField { 
+                    id: newSupplier
+                    placeholderText: "Supplier Name"
+                    Layout.fillWidth: true
+                }
+                
+                Label {
+                    text: "Expiry Date (YYYY-MM-DD):"
+                    font.bold: true
+                }
+                TextField { 
+                    id: newExpiry
+                    placeholderText: "YYYY-MM-DD"
+                    Layout.fillWidth: true
+                }
             }
 
             onAccepted: {
@@ -409,31 +598,50 @@ Item {
             }
         }
 
-        // Dialog {
-        //     id: deleteConfirmDialog
-        //     title: "Confirm Delete"
-        //     text: "Are you sure you want to delete this item?"
-        //     modal: true
-        //     property int medicineId: -1
-        //     standardButtons: Dialog.Yes | Dialog.No
+        Dialog {
+            id: deleteConfirmDialog
+            title: "Confirm Delete"
+            modal: true
+            x: parent.width / 2 - width / 2
+            y: parent.height / 2 - height / 2
+            width: 400
+            property int medicineId: -1
+            standardButtons: Dialog.Yes | Dialog.No
 
-        //     onAccepted: {
-        //         // Call database function to delete the stock item
-        //         dbManager.deleteStock(medicineId)
-        //     }
-        // }
+            Label {
+                text: "Are you sure you want to delete this item?"
+                wrapMode: Text.WordWrap
+                width: parent.width
+            }
 
-        // Dialog {
-        //     id: errorDialog
-        //     title: "Error"
-        //     text: "An error occurred during the database operation."
-        //     modal: true
-        //     standardButtons: Dialog.Ok
-        // }
-
-        ListModel {
-            id: medicineModel
-            // This will be populated from the database
+            onAccepted: {
+                // Call database function to delete the stock item
+                dbManager.deleteStock(medicineId)
+            }
         }
+
+        Dialog {
+            id: messagePopup
+            title: "Status"
+            modal: true
+            x: parent.width / 2 - width / 2
+            y: parent.height / 2 - height / 2
+            width: 300
+            standardButtons: Dialog.Ok
+
+            Label {
+                id: messageText
+                text: "Operation completed"
+                color: "#4CAF50"
+                font.pixelSize: 14
+                wrapMode: Text.WordWrap
+                width: parent.width
+            }
+        }
+    }
+
+    ListModel {
+        id: medicineModel
+        // This will be populated from the database
     }
 }
